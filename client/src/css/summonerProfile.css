@@ -1,0 +1,58 @@
+/* General Page Styling */
+
+.sumonnerProfile_body {
+    background-color: #564381; /* Dark background */
+    font-family: 'Exo 2', sans-serif; /* Modern, readable gaming font */
+    color: #ffffff; /* High contrast text color */
+    
+}
+
+
+/* Player Profile Styling */
+.player-profile {
+    background-color: #2a2a2a;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    max-width: 800px;
+}
+
+/* Matches List Styling */
+.matches-list {
+    background-color: #232323;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+}
+
+.matches-list-item {
+    border-bottom: 1px solid #333333;
+    padding: 10px 0;
+}
+
+/* Loading Animation Styling */
+.loading-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Error Page Styling */
+.error-page {
+    color: #ff4444;
+    text-align: center;
+    padding: 50px;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}

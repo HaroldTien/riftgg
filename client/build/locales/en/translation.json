@@ -1,0 +1,28 @@
+{
+    "blogs":"Blogs",
+    "Search":"Search",
+    "summonerName":"Summoner",
+    "summonerLevel":"Level",
+    "rank":"Rank",
+    "NoRank":"No Rank",
+
+
+
+    "data":"DATA",
+
+
+
+
+
+    "SummonerNotFound":"Summoner Not Found",
+    "summonerNotFound-description":"The summoner name you entered could not be found. Please check the spelling, regions and try again",
+    "backToHome":"Go Back",
+
+
+    "win_rate":"Win Rate",
+    "pick_rate":"Pick Rate",
+
+    "Technical":"Technical",
+    "LookingForTeamate":"Looking For Teamate",
+    "crappyTeammates":"Crappy Teammates"
+}

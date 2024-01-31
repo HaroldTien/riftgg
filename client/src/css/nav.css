@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+
+.nav {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.8vh;
+}
+
+.nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem; 
+}
+
+.site-title {
+    font-size: 2rem;
+}
+
+.nav a {
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .25rem;
+}
+
+.nav li:hover {
+    background-color: #777;
+}
+
+/* Styles for react-select dropdown */
+.nav .react-select__control {
+    background-color: #333; /* Match navbar background */
+    border: 1px solid #555; /* Slightly lighter border for visibility */
+    color: white;
+    min-height: 38px; /* Adjust as needed */
+}
+
+.nav .react-select__value-container {
+    padding: 0 8px; /* Adjust horizontal padding as needed */
+}
+
+.nav .react-select__single-value {
+    color: white; /* Text color for selected value */
+}
+
+.nav .react-select__menu {
+    background-color: #333; /* Dropdown background */
+    color: white; /* Dropdown text color */
+    border: none;
+}
+
+.nav .react-select__option {
+    color: black; /* Option text color */
+}
+
+.nav .react-select__option--is-selected {
+    background-color: #555; /* Selected option background */
+}
+
+.nav .react-select__option--is-focused {
+    background-color: #444; /* Background color for option on hover/focus */
+}
+
+/* Optionally, style other react-select elements as needed */

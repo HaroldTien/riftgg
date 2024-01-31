@@ -1,0 +1,38 @@
+.containter{
+    width: 500px;
+    margin: auto;
+}
+.containter *{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.container {
+    background-color: #202020; /* Dark background for gaming look */
+    color: #f0f0f0; /* Light text for contrast */
+    font-family: 'Exo 2', sans-serif; /* Modern, readable gaming font */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    text-align: center; /* Centering content */
+    margin: 20px auto;
+    max-width: 600px; /* Adjust the width as needed */
+}
+
+.container h3 {
+    margin: 10px 0; /* Spacing between headings */
+    color: #4caf50; /* Vibrant color for headings */
+    font-size: 18px; /* Suitable font size */
+}
+
+
+/* Style for PlayerRank component, adjust as needed */
+.player-rank {
+    background-color: #282828; /* Slightly different background for contrast */
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    color: #e0e0e0;
+}

@@ -1,0 +1,18 @@
+
+.post-container{
+    border-radius: 2rem;
+    width: 250px;
+    height: 350px;
+    background-color: bisque;
+}
+.post-container p{
+    word-wrap: break-word;
+    margin: 10%;
+}
+#title{
+    padding-top: 10px;
+    margin: 20px;
+    font-size: 20px;
+    white-space: normal; /* Ensures text wrapping */
+    word-wrap: break-word; /* Breaks words onto the next line to prevent overflow */
+}

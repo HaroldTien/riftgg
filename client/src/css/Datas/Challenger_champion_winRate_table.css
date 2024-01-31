@@ -1,0 +1,40 @@
+/* Challenger_champion_winRate_table.css */
+.game-table {
+  background-color: #121212;
+  color: #ffffff;
+  border-radius: 0.25rem;
+  overflow: hidden; /* Ensures the rounded corners apply to child elements */
+}
+
+.game-table thead {
+  background-color: #0d6efd; /* Bootstrap primary color */
+}
+
+.game-table thead th {
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  font-size: 0.6rem; /* Smaller font size for pixel-style fonts */
+}
+
+.game-table tbody tr {
+  border-top: 1px solid #343a40; /* Bootstrap dark border color */
+}
+
+.game-table tbody tr:nth-of-type(odd) {
+  background-color: #262626; /* Slightly lighter background for odd rows */
+}
+
+.game-table tbody tr:hover {
+  background-color: #333333; /* Hover state for rows */
+}
+
+.game-table tbody td {
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem; /* Regular font size for body cells */
+}
+
+/* Custom class for the win rate to stand out */
+.win-rate {
+  color: #28a745; /* Bootstrap success color */
+  font-weight: bold;
+}

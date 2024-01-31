@@ -1,0 +1,102 @@
+
+
+
+
+.nav{
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+
+#searchInput{
+  width: 25rem;
+  height: 4rem;
+  font-size:larger;
+  border-radius: 5rem;
+  background-color: gray;
+}
+#searchButton{  
+  font-size: 20px;
+  height: 65px;
+  width: 100px;
+  border-radius: 5rem;
+  background-color: purple;   
+  color: white;
+}
+#searchButton:hover{
+  color: gray;
+}
+#searchButton:active{
+  font-size: 22px;
+}
+#regions-selector{
+  height: 60px;
+  width: fit-content;
+  background-color: purple;
+  color: white;
+  border-radius: 2rem;
+  text-align: center;
+}
+#regions-selector span{
+  
+  /* border: 1px solid #8161D4;  */
+  border-radius: 1rem; 
+  /* display: inline-block; */
+}
+
+#regions-menu{
+  color: white;
+  background:#9161D4
+}
+
+.region-select{
+  width: fit-content; /* Or 'auto', depending on your needs */
+  margin: auto; /* Optional, for centering if needed */
+}
+
+
+.searcher-container{
+  margin: 0 auto;
+  width: 600px;
+  margin-top: 2vh;
+  
+  text-align: center;
+}
+
+.searcher-container> form{
+  display: flex;
+  justify-content: center;
+}
+
+.homeImg{
+  width: 400px;
+  height: 214px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 13vh;
+  margin-bottom: 0px;
+}
+
+footer{
+  z-index: 2;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  text-align: center; /* Ensures text is centered if it wraps onto multiple lines */
+}
+
+.loading {
+  animation: blinker 1.5s linear infinite;
+  text-align: center;
+}
+
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

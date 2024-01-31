@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap');
+
+/* Game Content */
+/* .gamecontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+
+
+/* Participants */
+.participants {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.first, .second, .third, .fourth {
+    flex: 1;
+    margin: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+.participant {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    background: #1a1a1a;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.participant a {
+    text-decoration: none;
+    color: inherit;
+    
+}
+
+.participant img {
+    margin-right: 12px;
+    border-radius: 50%;
+    margin: 6px 0;
+}
+
+.first .participant {
+    border-left: 4px solid #4caf50;
+}
+
+.fourth .participant {
+    border-left: 4px solid #ff4444;
+}
+

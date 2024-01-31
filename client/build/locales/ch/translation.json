@@ -1,0 +1,51 @@
+{
+    "blogs":"論壇",
+    "Search":"搜尋",
+    "summonerName":"召喚師",
+    "summonerLevel":"等級",
+    "rank":"排位",
+    "NoRank":"無排位",
+    "sole":"單雙積分",
+    "flex":"彈性積分",
+    "CHALLENGER":"菁英",
+    "GRANDMASTER":"大師",
+    "IRON":"鐵牌",
+    "BRONZE":"銅牌",
+    "DIAMOND":"鑽石",
+    "MASTER":"宗師",
+
+    "minutes":"分",
+    "seconds":"秒",
+
+
+    "data":"數據",
+
+    "OCE":"大洋洲",
+    "TW":"台港澳",
+    "NA":"北美",
+
+
+    "CLASSIC":"單雙積分",
+    "CHERRY":"大亂鬥",
+    "ARAM":"隨機單中",
+
+
+    "SummonerNotFound":"找不到召喚師",
+    "summonerNotFound-description":"找不到您輸入的召喚師姓名。 請檢查拼字、區域，然後重試。",
+    "backToHome":"回首頁",
+
+    "Tier":"段位",
+
+
+
+    "win_rate":"勝率",
+    "pick_rate":"選率",
+
+
+    "Community":"社群",
+    "Technical":"技術交流",
+    "LookingForTeamate":"尋找隊友",
+    "crappyTeammates":"靠杯隊友"
+
+
+}

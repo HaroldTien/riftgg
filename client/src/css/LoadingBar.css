@@ -1,0 +1,21 @@
+/* LoadingBar.css */
+.loading-bar-container {
+    width: 100%;
+    background-color: #e0e0e0; /* Light grey background for the loading bar */
+    border-radius: 5px;
+    overflow: hidden; /* Ensures the inner bar doesn't overflow */
+}
+
+.loading-bar {
+    height: 20px;
+    background-color: #3498db; /* Blue color for the loading bar */
+    width: 0%;
+    border-radius: 5px;
+    animation: load 3s ease-in-out infinite;
+}
+
+@keyframes load {
+    0% { width: 0%; }
+    50% { width: 100%; }
+    100% { width: 0%; }
+}
