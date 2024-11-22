@@ -19,7 +19,7 @@ const Aram=(props)=>{
     const getSummonerMatchData=()=>{
         const summoners_arr=[...props.match.participants];
         for(let i=0;i<summoners_arr.length;i++){
-            if(unicodeToChar(summoners_arr[i].summonerName)===props.summonerProfile.name){
+            if(unicodeToChar(summoners_arr[i].summonerId)===props.summonerProfile.id){
                 return summoners_arr[i];
             }
         }
@@ -40,8 +40,12 @@ const Aram=(props)=>{
     .map(participant => (
         <a key={participant.summonerId} href={`/summonerProfile?summonerName=${participant.summonerName}&region=${props.region}`}>
             <div className='participant teammate' >
-                <img width={20} height={20} src={Urls.champAvatar(participant.championName)} alt={participant.championName} />
+                <img width={20} height={20} src={Urls.champAvatar(participant.championName,props.match.version)} alt={participant.championName} />
                 {participant.summonerName}
+                <div className="kda"><p>{participant.kills}/{participant.deaths}/{participant.assists}</p></div>
+                <div className="items">
+                    {participant.items.filter(item_code=>item_code!==0).map((item,index)=><img key={index} src={Urls.getItems_icon_rul(item,props.match.version)}></img>)}
+                </div>
             </div>
         </a>
     ));
@@ -51,7 +55,7 @@ const Aram=(props)=>{
     .map(participant => (
         <a key={participant.summonerId} href={`/summonerProfile?summonerName=${participant.summonerName}&region=${props.region}`}>
             <div className='participant enemy'  >
-                <img  width={20} height={20} src={Urls.champAvatar(participant.championName)} alt={participant.championName} />
+                <img  width={20} height={20} src={Urls.champAvatar(participant.championName,props.match.version)} alt={participant.championName} />
                 {participant.summonerName}
             </div>
         </a>
@@ -83,7 +87,7 @@ const Aram=(props)=>{
                         
             <div className="champion-icon-spells-runes-items">
                 <div className="champion-icon-spells-runes">
-                    <img className="champion-icon"  style={{ border: `2px solid ${SummonerMatchData.win===true?'green':'#ff0000'}`}}  width={60} height={60} src={Urls.champAvatar(SummonerMatchData.championName)}></img>
+                    <img className="champion-icon"  style={{ border: `2px solid ${SummonerMatchData.win===true?'green':'#ff0000'}`}}  width={60} height={60} src={Urls.champAvatar(SummonerMatchData.championName,props.match.version)}></img>
                     <div className="spells">
                         <img className="spell" src={Urls.get_summonerSpell_url(SummonerMatchData.summoner1Id)}></img>
                         <img className="spell" src={Urls.get_summonerSpell_url(SummonerMatchData.summoner2Id)}></img>
@@ -96,7 +100,7 @@ const Aram=(props)=>{
 
                 <div  className="items-container">
                     {items_arr.filter(item=>item!==0).map((item,index)=>{
-                        return(<img key={index} className='item'  src={Urls.getItems_icon_rul(item)}></img>)
+                        return(<img key={index} className='item'  src={Urls.getItems_icon_rul(item,props.match.version)}></img>)
                     })} 
                  </div>
             </div>

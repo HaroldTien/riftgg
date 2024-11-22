@@ -20,10 +20,10 @@ const Urls={
     getRealmRouter:(region)=>{
         switch(region){
             case "TW2":
-                return regions.RegionalRoutingValues['SEA'];
+                return regions.RegionalRoutingValues['ASIA'];
                 break;
             case "OC1":
-                return regions.RegionalRoutingValues['SEA'];
+                return regions.RegionalRoutingValues['OCE'];
                 break;
         };
     },

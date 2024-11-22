@@ -1,4 +1,3 @@
-
 import React, { PureComponent ,Component,useState, useEffect,useRef} from 'react';
 import axios from 'axios'
 import Urls from '../../urls';
@@ -9,9 +8,6 @@ import { useTranslation } from 'react-i18next';
 import SoleRank from './Gamemodes/soleRank.jsx'
 import Cherry from './Gamemodes/cherry.jsx';
 import Aram from './Gamemodes/aram.jsx';
-import { collection, getDocs,getDoc, doc, query, limit ,addDoc, setDoc} from "firebase/firestore";
-import { db } from "../../firebase-config.js";
-
 
 
 const  MatchesList =(props)=>{
@@ -23,16 +19,7 @@ const  MatchesList =(props)=>{
     useEffect(()=>{
         getMatchData(0);
     },[])
-    // useEffect(()=>{
-    //     // console.log(isMatchExsits)    
-    // },[isMatchExsits])
 
-
-    const checkMatchExsitance=async(docId)=>{
-        const docRef = doc(db, 'matchesData', docId);
-        const docSnap = await getDoc(docRef);
-        return docSnap.exists()
-    }
 
     const take_features_from_matchData=(matchData)=>{
         console.log(matchData)
@@ -76,34 +63,26 @@ const  MatchesList =(props)=>{
         if(loading===true){
             console.log('loading for matches');
         }
-        const requestMatchesListUrl=`https://${Urls.getRealmRouter(props.region)}/lol/match/v5/matches/by-puuid/${props.puuid}/ids?api_key=${props.API_KEY}&count=10&start=${start}`
+        let requestMatchesListUrl;
+        if(props.region==="TW2"){
+            requestMatchesListUrl=`https://sea.api.riotgames.com/lol/match/v5/matches/by-puuid/${props.puuid}/ids?api_key=${props.API_KEY}&count=10&start=${start}`
+        }else{
+            requestMatchesListUrl=`https://${Urls.getRealmRouter(props.region)}/lol/match/v5/matches/by-puuid/${props.puuid}/ids?api_key=${props.API_KEY}&count=10&start=${start}`
+        }
         console.log(requestMatchesListUrl)
         try{
             const resp=await axios.get(requestMatchesListUrl);
             data.matchesId_arr=await resp.data;
-            
-            for(let i=0;i<data.matchesId_arr.length;i++){
-                const isMatchExsits=await checkMatchExsitance(data.matchesId_arr[i])
-                if(isMatchExsits){
-                    console.log(data.matchesId_arr[i]+' exsits')
-                    const platformId = data.matchesId_arr[i].match(/^.*(?=_)/)[0];
-                    console.log(platformId)
-                    const match_ref=doc(db,platformId+'_matchesData',data.matchesId_arr[i]);
-                    const getMatchFromFirestore=async()=>{
-                        const matchDoc=await getDoc(match_ref);
-                        data.matchesData_arr.push(matchDoc.data());
-                    }
-                    getMatchFromFirestore()
-                    console.log(data.matchesData_arr)
+
+            for(let i=0; i<data.matchesId_arr.length; i++){
+                let requestMatchDataUrl;
+                if(props.region==="TW2"){
+                    requestMatchDataUrl=`https://sea.api.riotgames.com/lol/match/v5/matches/${data.matchesId_arr[i]}?api_key=${props.API_KEY}`;
                 }else{
-                    console.log(data.matchesId_arr[i]+' does not exsits')
-                    const requestMatchDataUrl=`https://${Urls.getRealmRouter(props.region)}/lol/match/v5/matches/${data.matchesId_arr[i]}?api_key=${props.API_KEY}`;
-                    const respMatchData=await axios.get(requestMatchDataUrl);
-                    const match=take_features_from_matchData(respMatchData.data);
-                    data.matchesData_arr.push(match);
-                    const match_ref = doc(db, match.platformId+'_matchesData', match.matchId);
-                    setDoc(match_ref, match);
+                    requestMatchDataUrl=`https://${Urls.getRealmRouter(props.region)}/lol/match/v5/matches/${data.matchesId_arr[i]}?api_key=${props.API_KEY}`;
                 }
+                const respMatchData=await axios.get(requestMatchDataUrl);
+                data.matchesData_arr.push(take_features_from_matchData(respMatchData.data));
             }
         }catch(e){
             console.log(e)
@@ -136,8 +115,8 @@ const  MatchesList =(props)=>{
                 {matchesData_arr.map((match,index)=>{
                     return (
                         <li className='gameslist' key={index} >
-                            {match.matchId}<br></br>
-                            {match.version}
+                            {/* {match.matchId}<br></br> */}
+                            {/* {match.version} */}
                             {handleGameModes(match)}
                         </li>
                     )

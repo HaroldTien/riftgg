@@ -24,6 +24,7 @@ const languageRegionTransfer={
 
 const Home = () => {
   const [summonerName, setsummonerName] = useState(' ');
+  const [targetline,setTargetline] =useState('');
   const [region, setRegion] = useState(null);
   const [isLoading, setIsLoading]=useState(true);
   const navigator = useNavigate();
@@ -37,6 +38,7 @@ const Home = () => {
       const country = data.data.country;
       console.log("current region has been catche from API: " + country);
       setRegion(region => region = Urls.APIcountryTransfer[country]);
+      setTargetline(targetline=>targetline=Urls.APIcountryTransfer[country])
     } catch (e) {
       console.log(`Error: ${e}`);
     }
@@ -44,8 +46,9 @@ const Home = () => {
   }
 
   const NavigationToSummonerProfile = (summonerName) => {
-    navigator(`/summonerProfile?summonerName=${summonerName}&region=${region!==null?region:regionRef.current.value}`, { state: { language:i18n.language} });
+    navigator(`/summonerProfile?summonerName=${summonerName}&targetline=${targetline}&region=${region!==null?region:regionRef.current.value}`, { state: { language:i18n.language} });
   }
+
   const handleSummit=(e) => {
     if(summonerName===' '){
       navigator('/SearchError');
@@ -71,6 +74,7 @@ const Home = () => {
         <LoadingAnimation />
       </div>)
   };
+  console.log(targetline)
   return (
       <React.Fragment>
         <NavBar region={region}  />
@@ -101,6 +105,7 @@ const Home = () => {
 
 
               <input placeholder='Enter summoner name . . .' id="searchInput" type={'text'} onChange={(e) => setsummonerName((prev) => prev = e.target.value)} ></input>
+              <input placeholder={`#${targetline}`} id="targetline" type={'text'} onChange={(e) => setTargetline(e.target.value || targetline)} ></input>
               <button id="searchButton" type="summit" >{t('Search')}</button>
 
             </form>

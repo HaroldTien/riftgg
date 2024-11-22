@@ -1,20 +1,44 @@
-
-
-
-
 .nav{
   z-index: 1;
   margin-bottom: 0;
 }
 
 
-#searchInput{
+#searchInput,
+#targetline {
   width: 25rem;
   height: 4rem;
-  font-size:larger;
-  border-radius: 5rem;
-  background-color: gray;
+  font-size: 1.1rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0 1.5rem;
+  transition: all 0.3s ease;
 }
+
+#targetline {
+  width: 7rem; /* Smaller width for the targetline input */
+}
+
+#searchInput:focus,
+#targetline:focus {
+  outline: none;
+  border-color: #9161D4;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+#searchInput:hover,
+#targetline:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(145, 97, 212, 0.5);
+}
+
+#searchInput::placeholder,
+#targetline::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 #searchButton{  
   font-size: 20px;
   height: 65px;

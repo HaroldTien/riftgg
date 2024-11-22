@@ -15,18 +15,17 @@ const SoleRank=(props)=>{
                     return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
                });
     }
-    
+    console.log(props)
     const getSummonerMatchData=()=>{
         const summoners_arr=[...props.match.participants];
         // console.log(summoners_arr)
         for(let i=0;i<summoners_arr.length;i++){
-            if(unicodeToChar(summoners_arr[i].summonerName)===props.summonerProfile.name){
+            if(unicodeToChar(summoners_arr[i].summonerId)===props.summonerProfile.id){
                 return summoners_arr[i];
             }
         }
     }
     const SummonerMatchData=getSummonerMatchData()
-    // console.log(SummonerMatchData)
     const getDateFromUnixTime=()=>{
         const date=new Date(props.match.gameStartTimestamp);
         let hours=date.getHours().toString();   
@@ -35,10 +34,10 @@ const SoleRank=(props)=>{
         return `${date.toLocaleDateString('zh-TW')} ${hours}:${minutes}:${seconds}`;
     }
 
-    console.log(props.match.version)
     const getParticipantsItems=(participant)=>{
         return [SummonerMatchData.items[0],SummonerMatchData.items[1],SummonerMatchData.items[2],SummonerMatchData.items[3],SummonerMatchData.items[4],SummonerMatchData.items[5]]
     }
+    console.log(props.match.participants[0].win)
     const teammates = props.match.participants
     .filter(participant => participant.win === SummonerMatchData.win)
     .map(participant => (
@@ -57,7 +56,7 @@ const SoleRank=(props)=>{
     const enemies =props.match.participants
         .filter(participant => participant.win !== SummonerMatchData.win)
         .map(participant => (
-            <a key={participant.summonerId} href={`/summonerProfile?summonerName=${participant.summonerName}&region=${props.region}`}>
+            <a key={participant.summonerId} href={`/summonerProfile?summonerName=${participant.summonerName}&region=${props.region}&summonerId=${participant.summonerId}`}>
             <div className='participant enemy'>
                 <img className="champion-icon" width={20} height={20} src={Urls.champAvatar(participant.championName,props.match.version)} alt={participant.championName} />                                
                 <p >{participant.summonerName}</p>

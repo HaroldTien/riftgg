@@ -1,12 +1,98 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap');
 
 /* Game Content */
-/* .gamecontent {
+.gamecontent {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.game-mode-kda-teamposition{
+    /* position: absolute; */
+    height: inherit;
+    width:fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* left: 20px; */
+}
+.game-mode{
+    order: 1;
+    padding-right: 20px;
+    font-size: 20px;
+}
+.kda{
+    padding-right: 20px;
+    order: 2;
+    font-size: 20px;
+}
+.teamposition{
+    order: 3;
+    padding-bottom: 13px;
+}
+
+
+.game-times{
+    position: relative;
+    left: 16px;
+    margin-top: 10px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+.game-times p{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.champion-icon-spells-runes-items{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.champion-icon-spells-runes{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.spells{
+    display: flex;
+    flex-direction: column;
+}
+.spell{
+    height: 30px;
+    width: 30px;
+}
+.runes{
     display: flex;
     flex-direction: column;
     align-items: center;
-} */
-
+    justify-content: center spec;
+}
+.prime-rune{
+    height: 35px;
+    width: 35px;
+}
+.sub-rune{
+    height: 25px;
+    width: 25px;
+}
+.items-container {
+    display: flex;
+    flex-direction: row;
+}
+.item{
+    height: 25px;
+    width: 25px;
+}
 
 
 /* Participants */
@@ -16,7 +102,7 @@
     justify-content: space-between;
 }
 
-.first, .second, .third, .fourth {
+.teammates, .enemies {
     flex: 1;
     margin: 12px;
     background: rgba(0, 0, 0, 0.6);
@@ -28,32 +114,51 @@
 .participant {
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     background: #1a1a1a;
-    padding: 8px;
+    padding: 5px;
     border-radius: 8px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
     color: #ffffff;
     font-size: 15px;
+    gap: 10px;
+}
+
+.participant .items {
+    order: 3;
 }
 
 .participant a {
     text-decoration: none;
     color: inherit;
-    
+}
+
+.participant p {
+    margin: 0;
+    padding: auto;
+    order: 2;
+    text-decoration: none;
 }
 
 .participant img {
-    margin-right: 12px;
-    border-radius: 50%;
-    margin: 6px 0;
+    border-radius: 70%;
+    width: 20px;
+    height: 20px;
+    order: 0;
 }
 
-.first .participant {
+.participant .kda {
+    order: 1;
+    font-size: 15px;
+    width: fit-content;
+    padding: 0%;
+}
+
+.teammates .participant {
     border-left: 4px solid #4caf50;
 }
 
-.fourth .participant {
-    border-left: 4px solid #ff4444;
+.enemies .participant {
+    border-right: 4px solid #ff4444;
 }
 
