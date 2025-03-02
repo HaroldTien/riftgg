@@ -13,7 +13,7 @@ import Dropdown from 'react-bootstrap/Dropdown'; //react-bootstrap dropdown
 import 'bootstrap/dist/css/bootstrap.min.css' //bootstrap
 import "/node_modules/flag-icons/css/flag-icons.min.css";//for flags
 
-const API_KEY = 'RGAPI-db217079-3e3d-4bb3-9efc-1e3d77fc4144';
+const API_KEY = process.env.REACT_APP_RIOT_API_KEY;
 
 const languageRegionTransfer={
   "TW":1,
